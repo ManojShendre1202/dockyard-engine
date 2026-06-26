@@ -1,0 +1,23 @@
+{
+  "stages": [
+    {
+      "name": "ROOM_DETECTION",
+      "display_name": "Room Detection",
+      "description": "Detects and classifies rooms from floor plan drawing using OpenCV contour analysis.",
+      "requires_human_review": false
+    },
+    {
+      "name": "AREA_MEASUREMENT",
+      "display_name": "Area Measurement",
+      "description": "Computes area of each detected room using geometric computation (Shapely).",
+      "requires_human_review": true,
+      "review_prompt": "Please verify the detected room boundaries before area calculation proceeds."
+    },
+    {
+      "name": "BOM_GENERATION",
+      "display_name": "BOM Generation",
+      "description": "Generates structured Bill of Materials JSON from verified room measurements.",
+      "requires_human_review": false
+    }
+  ]
+}
